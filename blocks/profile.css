@@ -1,0 +1,131 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px 0;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile__avatar {
+  max-width: 190px;
+  width: 100%;
+  border-radius: 8px;
+  margin-right: 20px;
+  width: 190px;
+  height: 190px;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  color: #212121;
+}
+
+.profile__description {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #212121;
+  opacity: 0.7;
+}
+
+.profile__edit-button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 0;
+  opacity: 0.7;
+  cursor: pointer;
+  color: #212121;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.profile__edit-button:hover {
+  opacity: 1;
+}
+.profile__icon-pencil {
+  display: block;
+}
+
+.profile__new-post-button {
+  background-color: #212121;
+  color: #fcf5e5;
+  border: none;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-top: auto;
+  padding: 0;
+  width: 149px;
+  height: 52px;
+  cursor: pointer;
+}
+
+.profile__new-post-button:hover {
+  background-color: rgba(33, 33, 33, 0.8);
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__info {
+    align-items: center;
+    gap: 0;
+    margin: 0 0 20px;
+  }
+
+  .profile__name {
+    margin: 0 0 6px;
+    font-size: 20px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+    max-width: 288px;
+  }
+
+  .profile__avatar {
+    margin-right: 0;
+    width: 80px;
+    height: 80px;
+    padding-bottom: 12px;
+  }
+
+  .profile__edit-button {
+    margin: 0;
+  }
+
+  .profile__new-post-button {
+    margin: 0;
+  }
+}
