@@ -59,7 +59,6 @@
   opacity: 0.7;
   cursor: pointer;
   color: #212121;
-  font-family: Poppins;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -127,5 +126,6 @@
 
   .profile__new-post-button {
     margin: 0;
+    width: 100%;
   }
 }
