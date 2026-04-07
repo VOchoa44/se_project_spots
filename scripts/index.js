@@ -59,9 +59,10 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  closeModal(newPostModal);
   console.log(newPostImageInput.value);
   console.log(newPostCaptionInput.value);
+  closeModal(newPostModal);
+  newPostForm.reset();
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
