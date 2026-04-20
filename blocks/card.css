@@ -5,8 +5,9 @@
 }
 
 .card__delete-button {
-  background: transparent url(../images/delete-default-icon.svg) no-repeat;
+  background: transparent url(../images/delete-icon.svg) no-repeat;
   position: absolute;
+  opacity: 0.4;
   top: 10px;
   right: 10px;
   height: 32px;
@@ -16,7 +17,8 @@
 }
 
 .card__delete-button:hover {
-  background-image: url(../images/delete-hover-icon.svg);
+  opacity: 1;
+  filter: hue-rotate(300deg);
 }
 
 .card__image {
@@ -26,10 +28,6 @@
   display: block;
   border-radius: 8px;
   cursor: pointer;
-}
-
-.card__image:hover {
-  opacity: 0.8;
 }
 
 .card__like-button {
