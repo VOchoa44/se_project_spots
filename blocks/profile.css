@@ -126,6 +126,7 @@
 
   .profile__new-post-button {
     margin: 0;
+    max-width: 288px;
     width: 100%;
   }
 }
