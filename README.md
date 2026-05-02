@@ -18,4 +18,4 @@ Spots is a website that shows a photogallery that is supported by responsive des
 **Links**
 
 - Deployed Project [link](https://vochoa44.github.io/se_project_spots/)
-- Project Pitch [link](https://drive.google.com/file/d/1uGinRZ1OtiTOctoqkt64wt5NNOO9sBTq/view?usp=drive_link)
+- Project Pitch [link](https://www.loom.com/share/0a0ed6805284478cbec72c885f19ea6c)
