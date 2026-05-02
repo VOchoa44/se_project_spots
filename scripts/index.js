@@ -57,7 +57,7 @@ const previewModalCloseButton = previewModal.querySelector(
 );
 const previewModalImage = previewModal.querySelector(".modal__preview-image");
 const previewModalTitle = previewModal.querySelector(".modal__title-preview");
-const previewModalExit = document.querySelectorAll(".modal");
+const modalOverlays = document.querySelectorAll(".modal");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -84,21 +84,22 @@ modalCloseButtonNewPost.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
-previewModalCloseButton.addEventListener("click", function () {
+previewModalCloseButton.addEventListener("click", function (evt) {
   closeModal(previewModal);
 });
 
-previewModalExit.forEach((modalElement) => {
+modalOverlays.forEach((modalElement) => {
   modalElement.addEventListener("click", function (evt) {
-    if (!evt.target.classList.contains("modal__preview-image")) {
-      closeModal(previewModal);
+    if (evt.target.classList.contains("modal_is-opened")) {
+      closeModal(modalElement);
     }
   });
 });
 
 document.addEventListener("keydown", function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
-    closeModal(previewModal);
+    const openModal = document.querySelector(".modal_is-opened");
+    closeModal(openModal);
   }
 });
 
@@ -109,12 +110,12 @@ function handleEditProfileSubmit(evt) {
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
 }
 
-const userTemplate = document
+const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 
 function getCardElement(data) {
-  const cardElement = userTemplate.cloneNode(true);
+  const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   const cardLikedButton = cardElement.querySelector(".card__like-button");
@@ -148,14 +149,17 @@ function handleNewPostSubmit(evt) {
     link: newPostImageInput.value,
   };
   const newElement = getCardElement(newCard);
+  const submitButton = newPostForm.querySelector(".modal__submit-button");
+  const inputList = Array.from(newPostForm.querySelectorAll(".modal__input"));
   cardsList.prepend(newElement);
   closeModal(newPostModal);
   newPostForm.reset();
+  toggleButtonState(inputList, submitButton, settings);
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
 
 initialCards.forEach((cardData) => {
-  const newCardData = getCardElement(cardData);
-  cardsList.prepend(newCardData);
+  const newCardElement = getCardElement(cardData);
+  cardsList.prepend(newCardElement);
 });
