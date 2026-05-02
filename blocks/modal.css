@@ -44,6 +44,12 @@
   cursor: pointer;
 }
 
+.modal__close-button_inactive {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
 .modal__close-button:hover {
   color: #212121;
   opacity: 0.4;
@@ -90,6 +96,18 @@
 
 .modal__input:hover {
   border: 1px solid rgba(33, 33, 33, 1);
+}
+
+.modal__error {
+  color: rgba(255, 0, 0, 0.7);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__submit-button {

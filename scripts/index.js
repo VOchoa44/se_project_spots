@@ -57,6 +57,7 @@ const previewModalCloseButton = previewModal.querySelector(
 );
 const previewModalImage = previewModal.querySelector(".modal__preview-image");
 const previewModalTitle = previewModal.querySelector(".modal__title-preview");
+const previewModalExit = document.querySelectorAll(".modal");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -85,6 +86,20 @@ modalCloseButtonNewPost.addEventListener("click", function () {
 
 previewModalCloseButton.addEventListener("click", function () {
   closeModal(previewModal);
+});
+
+previewModalExit.forEach((modalElement) => {
+  modalElement.addEventListener("click", function (evt) {
+    if (!evt.target.classList.contains("modal__preview-image")) {
+      closeModal(previewModal);
+    }
+  });
+});
+
+document.addEventListener("keydown", function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    closeModal(previewModal);
+  }
 });
 
 function handleEditProfileSubmit(evt) {
