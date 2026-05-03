@@ -14,11 +14,13 @@
   width: 32px;
   border: none;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .card__delete-button:hover {
   opacity: 1;
-  filter: hue-rotate(300deg);
+  background-color: #ff6565;
+  border-radius: 50%;
 }
 
 .card__image {
