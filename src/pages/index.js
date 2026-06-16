@@ -70,6 +70,9 @@ const modalCloseButtonNewPost = newPostModal.querySelector(
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalCancel = deleteModal.querySelector(".modal__cancel-button");
+const deleteModalclose = deleteModal.querySelector(
+  ".modal__close-button_delete",
+);
 
 //avatar modal
 const avatarModal = document.querySelector("#avatar-modal");
@@ -119,6 +122,10 @@ editProfileButton.addEventListener("click", function () {
 });
 
 deleteModalCancel.addEventListener("click", function () {
+  closeModal(deleteModal);
+});
+
+deleteModalclose.addEventListener("click", function () {
   closeModal(deleteModal);
 });
 
