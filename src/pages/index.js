@@ -1,11 +1,8 @@
-import {
-  enableValidation,
-  settings,
-  toggleButtonState,
-} from "../scripts/validation";
+import { settings } from "../scripts/validation";
 import "./index.css";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
+import FormValidator from "../scripts/validation";
 
 // const initialCards = [
 //   {
@@ -110,9 +107,11 @@ const modalOverlays = document.querySelectorAll(".modal");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 editProfileButton.addEventListener("click", function () {
@@ -157,12 +156,12 @@ modalOverlays.forEach((modalElement) => {
   });
 });
 
-document.addEventListener("keydown", function handleEscapeKey(evt) {
+function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-opened");
-    closeModal(openModal);
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) closeModal(openedModal);
   }
-});
+}
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
@@ -175,6 +174,7 @@ function handleEditProfileSubmit(evt) {
     })
     .then((data) => {
       closeModal(editProfileModal);
+      editProfileValidator.resetValidation();
       profileNameEl.textContent = data.name;
       profileDescriptionEl.textContent = data.about;
     })
@@ -262,14 +262,10 @@ function handleNewPostSubmit(evt) {
     })
     .then((data) => {
       const newElement = getCardElement(data);
-      const submitButton = newPostForm.querySelector(".modal__submit-button");
-      const inputList = Array.from(
-        newPostForm.querySelectorAll(".modal__input"),
-      );
       cardsList.prepend(newElement);
       closeModal(newPostModal);
+      newPostValidator.resetValidation();
       newPostForm.reset();
-      toggleButtonState(inputList, submitButton, settings);
     })
     .catch(console.error)
     .finally(() => {
@@ -286,6 +282,7 @@ function handleAvatarSubmit(evt) {
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       closeModal(avatarModal);
+      avatarValidator.resetValidation();
       profileAvatar.src = data.avatar;
     })
     .catch(console.error)
@@ -302,4 +299,10 @@ editAvatarButton.addEventListener("click", () => {
   openModal(avatarModal);
 });
 
-enableValidation(settings);
+const editProfileValidator = new FormValidator(editProfileForm, settings);
+const newPostValidator = new FormValidator(newPostForm, settings);
+const avatarValidator = new FormValidator(avatarForm, settings);
+
+editProfileValidator.enableValidation();
+newPostValidator.enableValidation();
+avatarValidator.enableValidation();
