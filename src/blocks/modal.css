@@ -32,6 +32,10 @@
   box-sizing: border-box;
 }
 
+.modal__container_delete {
+  padding: 32px 20px;
+}
+
 .modal__close-button {
   position: absolute;
   right: 50px;
@@ -124,6 +128,20 @@
   line-height: 1;
 }
 
+.modal__cancel-button {
+  max-width: 156px;
+  width: 100%;
+  background-color: rgba(33, 33, 33, 1);
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  padding: 18px 58px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
 .modal__submit-button:hover {
   background-color: rgba(33, 33, 33, 0.8);
 }
@@ -171,6 +189,55 @@
   margin: 8px 0 0 0;
 }
 
+.modal__title_delete-card {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+}
+
+.modal__submit-button_delete-card {
+  background-color: rgba(255, 101, 101, 1);
+  color: rgba(33, 33, 33, 1);
+  padding: 18px 52px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.modal__submit-button_delete-card:hover {
+  background-color: rgba(255, 51, 51, 1);
+}
+
+.modal__cancel-button {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(33, 33, 33, 1);
+  border: 1px solid rgba(33, 33, 33, 1);
+  padding: 18px 49px;
+  max-width: 156px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.modal__delete-card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal__cancel-button:hover {
+  background: rgba(33, 33, 33, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.modal__close-button_delete {
+  top: 0;
+  right: -52.5px;
+  background-color: transparent;
+}
+
 @media screen and (max-width: 627px) {
   .modal__title {
     margin: 0 0 24px;
@@ -206,5 +273,24 @@
   .modal__close-button_preview {
     top: -48px;
     right: 0px;
+  }
+
+  .modal__delete-card-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+  }
+
+  .modal__submit-button_delete-card {
+    max-width: 156px;
+    width: 100%;
+  }
+
+  .modal__close-button_delete {
+    top: 0px;
+    right: 6px;
+    top: -56px;
   }
 }
